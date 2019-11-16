@@ -1,0 +1,5 @@
+﻿  uic mtg_draft.ui
+  main.cpp
+  mtg_draft.cpp
+  moc_mtg_draft.cpp
+  MTG_Draft.vcxproj -> E:\Chris Wu\Documents\Stellar\MTG_Draft\x64\Debug\MTG_Draft.exe

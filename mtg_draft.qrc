@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/MTG_Draft">
+        <file>Resources/mana_crypt.jpg</file>
+    </qresource>
+</RCC>
