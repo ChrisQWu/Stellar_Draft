@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MTG_Draft_t {
     QByteArrayData data[13];
-    char stringdata0[220];
+    char stringdata0[263];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,23 +35,23 @@ QT_MOC_LITERAL(0, 0, 9), // "MTG_Draft"
 QT_MOC_LITERAL(1, 10, 15), // "nextButtonEvent"
 QT_MOC_LITERAL(2, 26, 0), // ""
 QT_MOC_LITERAL(3, 27, 21), // "on_nextButton_clicked"
-QT_MOC_LITERAL(4, 49, 18), // "cardButtonClicked1"
-QT_MOC_LITERAL(5, 68, 18), // "cardButtonClicked2"
-QT_MOC_LITERAL(6, 87, 18), // "cardButtonClicked3"
-QT_MOC_LITERAL(7, 106, 18), // "cardButtonClicked4"
-QT_MOC_LITERAL(8, 125, 18), // "cardButtonClicked5"
-QT_MOC_LITERAL(9, 144, 18), // "cardButtonClicked6"
-QT_MOC_LITERAL(10, 163, 18), // "cardButtonClicked7"
-QT_MOC_LITERAL(11, 182, 18), // "cardButtonClicked8"
-QT_MOC_LITERAL(12, 201, 18) // "cardButtonClicked9"
+QT_MOC_LITERAL(4, 49, 21), // "on_cardButton_clicked"
+QT_MOC_LITERAL(5, 71, 23), // "on_cardButton_2_clicked"
+QT_MOC_LITERAL(6, 95, 23), // "on_cardButton_3_clicked"
+QT_MOC_LITERAL(7, 119, 23), // "on_cardButton_4_clicked"
+QT_MOC_LITERAL(8, 143, 23), // "on_cardButton_5_clicked"
+QT_MOC_LITERAL(9, 167, 23), // "on_cardButton_6_clicked"
+QT_MOC_LITERAL(10, 191, 23), // "on_cardButton_7_clicked"
+QT_MOC_LITERAL(11, 215, 23), // "on_cardButton_8_clicked"
+QT_MOC_LITERAL(12, 239, 23) // "on_cardButton_9_clicked"
 
     },
     "MTG_Draft\0nextButtonEvent\0\0"
-    "on_nextButton_clicked\0cardButtonClicked1\0"
-    "cardButtonClicked2\0cardButtonClicked3\0"
-    "cardButtonClicked4\0cardButtonClicked5\0"
-    "cardButtonClicked6\0cardButtonClicked7\0"
-    "cardButtonClicked8\0cardButtonClicked9"
+    "on_nextButton_clicked\0on_cardButton_clicked\0"
+    "on_cardButton_2_clicked\0on_cardButton_3_clicked\0"
+    "on_cardButton_4_clicked\0on_cardButton_5_clicked\0"
+    "on_cardButton_6_clicked\0on_cardButton_7_clicked\0"
+    "on_cardButton_8_clicked\0on_cardButton_9_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -109,15 +109,15 @@ void MTG_Draft::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->nextButtonEvent(); break;
         case 1: _t->on_nextButton_clicked(); break;
-        case 2: _t->cardButtonClicked1(); break;
-        case 3: _t->cardButtonClicked2(); break;
-        case 4: _t->cardButtonClicked3(); break;
-        case 5: _t->cardButtonClicked4(); break;
-        case 6: _t->cardButtonClicked5(); break;
-        case 7: _t->cardButtonClicked6(); break;
-        case 8: _t->cardButtonClicked7(); break;
-        case 9: _t->cardButtonClicked8(); break;
-        case 10: _t->cardButtonClicked9(); break;
+        case 2: _t->on_cardButton_clicked(); break;
+        case 3: _t->on_cardButton_2_clicked(); break;
+        case 4: _t->on_cardButton_3_clicked(); break;
+        case 5: _t->on_cardButton_4_clicked(); break;
+        case 6: _t->on_cardButton_5_clicked(); break;
+        case 7: _t->on_cardButton_6_clicked(); break;
+        case 8: _t->on_cardButton_7_clicked(); break;
+        case 9: _t->on_cardButton_8_clicked(); break;
+        case 10: _t->on_cardButton_9_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

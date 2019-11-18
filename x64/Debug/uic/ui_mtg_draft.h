@@ -14,8 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -48,9 +46,6 @@ public:
     QPushButton *cardButton_7;
     QPushButton *cardButton_8;
     QPushButton *cardButton_9;
-    QMenuBar *menuBar;
-    QMenu *menuFile;
-    QMenu *menuHelp;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -109,48 +104,35 @@ public:
         cardButton->setGeometry(QRect(210, 20, 21, 21));
         cardButton_2 = new QPushButton(centralWidget);
         cardButton_2->setObjectName(QString::fromUtf8("cardButton_2"));
-        cardButton_2->setGeometry(QRect(210, 290, 21, 21));
+        cardButton_2->setGeometry(QRect(450, 20, 21, 21));
         cardButton_3 = new QPushButton(centralWidget);
         cardButton_3->setObjectName(QString::fromUtf8("cardButton_3"));
-        cardButton_3->setGeometry(QRect(210, 560, 21, 21));
+        cardButton_3->setGeometry(QRect(680, 20, 21, 21));
         cardButton_4 = new QPushButton(centralWidget);
         cardButton_4->setObjectName(QString::fromUtf8("cardButton_4"));
-        cardButton_4->setGeometry(QRect(450, 20, 21, 21));
+        cardButton_4->setGeometry(QRect(210, 290, 21, 21));
         cardButton_5 = new QPushButton(centralWidget);
         cardButton_5->setObjectName(QString::fromUtf8("cardButton_5"));
         cardButton_5->setGeometry(QRect(450, 290, 21, 21));
         cardButton_6 = new QPushButton(centralWidget);
         cardButton_6->setObjectName(QString::fromUtf8("cardButton_6"));
-        cardButton_6->setGeometry(QRect(450, 560, 21, 21));
+        cardButton_6->setGeometry(QRect(680, 290, 21, 21));
         cardButton_7 = new QPushButton(centralWidget);
         cardButton_7->setObjectName(QString::fromUtf8("cardButton_7"));
-        cardButton_7->setGeometry(QRect(680, 20, 21, 21));
+        cardButton_7->setGeometry(QRect(210, 560, 21, 21));
         cardButton_8 = new QPushButton(centralWidget);
         cardButton_8->setObjectName(QString::fromUtf8("cardButton_8"));
-        cardButton_8->setGeometry(QRect(680, 560, 21, 21));
+        cardButton_8->setGeometry(QRect(450, 560, 21, 21));
         cardButton_9 = new QPushButton(centralWidget);
         cardButton_9->setObjectName(QString::fromUtf8("cardButton_9"));
-        cardButton_9->setGeometry(QRect(680, 290, 21, 21));
+        cardButton_9->setGeometry(QRect(680, 560, 21, 21));
         MTG_DraftClass->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MTG_DraftClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 773, 21));
-        menuFile = new QMenu(menuBar);
-        menuFile->setObjectName(QString::fromUtf8("menuFile"));
-        menuHelp = new QMenu(menuBar);
-        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
-        MTG_DraftClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MTG_DraftClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MTG_DraftClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MTG_DraftClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MTG_DraftClass->setStatusBar(statusBar);
-
-        menuBar->addAction(menuFile->menuAction());
-        menuBar->addAction(menuHelp->menuAction());
-        menuFile->addAction(actionExit);
-        menuHelp->addAction(actionAbout);
 
         retranslateUi(MTG_DraftClass);
 
@@ -179,10 +161,8 @@ public:
         cardButton_5->setText(QApplication::translate("MTG_DraftClass", "5", nullptr));
         cardButton_6->setText(QApplication::translate("MTG_DraftClass", "6", nullptr));
         cardButton_7->setText(QApplication::translate("MTG_DraftClass", "7", nullptr));
-        cardButton_8->setText(QApplication::translate("MTG_DraftClass", "9", nullptr));
-        cardButton_9->setText(QApplication::translate("MTG_DraftClass", "8", nullptr));
-        menuFile->setTitle(QApplication::translate("MTG_DraftClass", "File", nullptr));
-        menuHelp->setTitle(QApplication::translate("MTG_DraftClass", "Help", nullptr));
+        cardButton_8->setText(QApplication::translate("MTG_DraftClass", "8", nullptr));
+        cardButton_9->setText(QApplication::translate("MTG_DraftClass", "9", nullptr));
     } // retranslateUi
 
 };

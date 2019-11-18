@@ -4,89 +4,75 @@ MTG_Draft::MTG_Draft(QWidget *parent) : QMainWindow(parent) {
 	ui.setupUi(this);
 	connect(ui.nextButton  , SIGNAL(clicked()), this, SLOT(on_nextButton_clicked));
 
-	connect(ui.cardButton  , SIGNAL(clicked()), this, SLOT(cardButtonClicked1));
-	connect(ui.cardButton_2, SIGNAL(clicked()), this, SLOT(cardButtonClicked2));
-	connect(ui.cardButton_3, SIGNAL(clicked()), this, SLOT(cardButtonClicked3));
-	connect(ui.cardButton_4, SIGNAL(clicked()), this, SLOT(cardButtonClicked4));
-	connect(ui.cardButton_5, SIGNAL(clicked()), this, SLOT(cardButtonClicked5));
-	connect(ui.cardButton_6, SIGNAL(clicked()), this, SLOT(cardButtonClicked6));
-	connect(ui.cardButton_7, SIGNAL(clicked()), this, SLOT(cardButtonClicked7));
-	connect(ui.cardButton_8, SIGNAL(clicked()), this, SLOT(cardButtonClicked8));
-	connect(ui.cardButton_9, SIGNAL(clicked()), this, SLOT(cardButtonClicked9));
+	connect(ui.cardButton  , SIGNAL(clicked()), this, SLOT(on_cardButton_clicked));
+	connect(ui.cardButton_2, SIGNAL(clicked()), this, SLOT(on_cardButton_2_clicked));
+	connect(ui.cardButton_3, SIGNAL(clicked()), this, SLOT(on_cardButton_3_clicked));
+	connect(ui.cardButton_4, SIGNAL(clicked()), this, SLOT(on_cardButton_4_clicked));
+	connect(ui.cardButton_5, SIGNAL(clicked()), this, SLOT(on_cardButton_5_clicked));
+	connect(ui.cardButton_6, SIGNAL(clicked()), this, SLOT(on_cardButton_6_clicked));
+	connect(ui.cardButton_7, SIGNAL(clicked()), this, SLOT(on_cardButton_7_clicked));
+	connect(ui.cardButton_8, SIGNAL(clicked()), this, SLOT(on_cardButton_8_clicked));
+	connect(ui.cardButton_9, SIGNAL(clicked()), this, SLOT(on_cardButton_9_clicked));
 
-	srand(time(NULL));
 	initializeCards();
 	initializeCardImages();
 	spike = Spike();
+	player = Player();
 }
 
 void MTG_Draft::on_nextButton_clicked() {
-	vector<int> usedIndicies;
-	cardMap.clear();
-	for (int i = 0; i < cards.size(); i++) {
-		if (usedIndicies.size() < cards.size()) {
-			int index = -1;
-			int count = 0;
-			do {
-				index = rand() % cards.size();
-			} while (std::find(usedIndicies.begin(), usedIndicies.end(), index) != usedIndicies.end());
-			usedIndicies.push_back(index);
-			cardImages[i]->setPixmap(QPixmap(QString::fromStdString(cards[index].getImgPath())));
-			cardMap[cardImages[i]] = cards[index];
+	activeCards.clear();
+	for (int j = 0; j < cardImages.size() && j < cards.size(); j++) {
+		activeCards.push_back(cards[j]);
+	}
+	shuffle(activeCards.begin(), activeCards.end(), default_random_engine(chrono::system_clock::now().time_since_epoch().count()));
+	for (int i = 0; i < cardImages.size(); i++) {
+		if (i < activeCards.size()) {
+			cardImages[i]->setPixmap(QPixmap(QString::fromStdString(activeCards[i].getImgPath())));
 		} else {
 			cardImages[i]->clear();
 		}
 	}
 	if (QObject::sender() == ui.nextButton) {
-		printCards();
+		//printCards();
 	}
 	//printCards();
 }
 
-void MTG_Draft::cardButtonClicked1() {
-	printCards();
-	//spike.addCardToPool(cards[0]);
-	//printPlayers();
+void MTG_Draft::on_cardButton_clicked() {
+	playerTakeCards(activeCards[0], 0);
 }
 
-void MTG_Draft::cardButtonClicked2() {
-	spike.addCardToPool(cardMap[ui.cardImage_2]);
-	printPlayers();
+void MTG_Draft::on_cardButton_2_clicked() {
+	playerTakeCards(activeCards[1], 1);
 }
 
-void MTG_Draft::cardButtonClicked3() {
-	spike.addCardToPool(cardMap[ui.cardImage_3]);
-	printPlayers();
+void MTG_Draft::on_cardButton_3_clicked() {
+	playerTakeCards(activeCards[2], 2);
 }
 
-void MTG_Draft::cardButtonClicked4() {
-	spike.addCardToPool(cardMap[ui.cardImage_4]);
-	printPlayers();
+void MTG_Draft::on_cardButton_4_clicked() {
+	playerTakeCards(activeCards[3], 3);
 }
 
-void MTG_Draft::cardButtonClicked5() {
-	spike.addCardToPool(cardMap[ui.cardImage_5]);
-	printPlayers();
+void MTG_Draft::on_cardButton_5_clicked() {
+	playerTakeCards(activeCards[4], 4);
 }
 
-void MTG_Draft::cardButtonClicked6() {
-	spike.addCardToPool(cardMap[ui.cardImage_6]);
-	printPlayers();
+void MTG_Draft::on_cardButton_6_clicked() {
+	playerTakeCards(activeCards[5], 5);
 }
 
-void MTG_Draft::cardButtonClicked7() {
-	spike.addCardToPool(cardMap[ui.cardImage_7]);
-	printPlayers();
+void MTG_Draft::on_cardButton_7_clicked() {
+	playerTakeCards(activeCards[6], 6);
 }
 
-void MTG_Draft::cardButtonClicked8() {
-	spike.addCardToPool(cardMap[ui.cardImage_8]);
-	printPlayers();
+void MTG_Draft::on_cardButton_8_clicked() {
+	playerTakeCards(activeCards[7], 7);
 }
 
-void MTG_Draft::cardButtonClicked9() {
-	spike.addCardToPool(cardMap[ui.cardImage_9]);
-	printPlayers();
+void MTG_Draft::on_cardButton_9_clicked() {
+	playerTakeCards(activeCards[8], 8);
 }
 
 void MTG_Draft::initializeCards() {
@@ -116,28 +102,53 @@ void MTG_Draft::initializeCardImages() {
 }
 
 void MTG_Draft::printCards() {
-	QMessageBox msgBox;
 	std::string cardsString = "";
-	for (auto card : cards) {
+	for (auto card : activeCards) {
 		cardsString += card.toString();
 	}
+	debugPrint(cardsString);
+}
 
-	/*
-	for (auto pair : cardMap) {
-		cardsString += "{" + pair.first->text().toStdString() + ":" + pair.second.toString() + "}\n";
-	}
-	*/
-
-	msgBox.setText(QString::fromStdString(cardsString));
-	msgBox.exec();
+void MTG_Draft::printCard(Card card) {
+	std::string cardsString = card.toString();
+	debugPrint(cardsString);
 }
 
 void MTG_Draft::printPlayers() {
-	QMessageBox msgBox;
-	std::string cardsString = "";
+	std::string cardsString = "Spike:\n";
 	for (auto card : spike.getCardPool()) {
 		cardsString += card.toString();
 	}
-	msgBox.setText(QString::fromStdString(cardsString));
+	cardsString += "\nPlayer:\n";
+	for (auto card : player.getCardPool()) {
+		cardsString += card.toString();
+	}
+	debugPrint(cardsString);
+}
+
+void MTG_Draft::debugPrint(string s) {
+	QMessageBox msgBox;
+	msgBox.setText(QString::fromStdString(s));
 	msgBox.exec();
+}
+
+
+void MTG_Draft::playerTakeCards(Card card, int takenIndex) {
+	player.addCardToPool(card);
+	removeActiveCard(card, takenIndex);
+	printPlayers();
+	Card spikeCard = spike.takeCard(activeCards);
+	spike.addCardToPool(spikeCard);
+	if (takenIndex == 0) {
+		removeActiveCard(spikeCard, 1);
+	} else {
+		removeActiveCard(spikeCard, 0);
+	}
+	printPlayers();
+}
+
+void MTG_Draft::removeActiveCard(Card card, int index) {
+	activeCards.erase(remove(activeCards.begin(), activeCards.end(), card));
+	cards.erase(remove(cards.begin(), cards.end(), card));
+	cardImages[index]->clear();
 }

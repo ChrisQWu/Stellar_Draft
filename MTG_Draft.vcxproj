@@ -92,6 +92,7 @@
     <ClCompile Include="card.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mtg_draft.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="player_abstract.cpp" />
     <ClCompile Include="spike.cpp" />
   </ItemGroup>
@@ -119,8 +120,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="card.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="player_abstract.h" />
     <ClInclude Include="spike.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

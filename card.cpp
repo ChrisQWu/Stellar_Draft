@@ -43,3 +43,7 @@ std::string Card::toString() {
 		+"\trarity:\t\t"   + this->rarity + "\n"
 		+"\timage path:\t" + this->imgPath + "\n";
 }
+
+bool operator==(const Card& a, const Card& b) {
+	return a.cardName == b.cardName;
+}

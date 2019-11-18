@@ -5,8 +5,9 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
-#include <time.h>
 #include <algorithm>
+#include <random>
+#include <chrono>
 
 #include "qstring.h"
 #include "ui_mtg_draft.h"
@@ -14,7 +15,7 @@
 #include "qmessagebox.h"
 #include "card.h"
 #include "spike.h"
-#include "qmap.h"
+#include "player.h"
 
 using namespace std;
 
@@ -26,15 +27,15 @@ public:
 
 public slots:
 	void on_nextButton_clicked();
-	void cardButtonClicked1();
-	void cardButtonClicked2();
-	void cardButtonClicked3();
-	void cardButtonClicked4();
-	void cardButtonClicked5();
-	void cardButtonClicked6();
-	void cardButtonClicked7();
-	void cardButtonClicked8();
-	void cardButtonClicked9();
+	void on_cardButton_clicked();
+	void on_cardButton_2_clicked();
+	void on_cardButton_3_clicked();
+	void on_cardButton_4_clicked();
+	void on_cardButton_5_clicked();
+	void on_cardButton_6_clicked();
+	void on_cardButton_7_clicked();
+	void on_cardButton_8_clicked();
+	void on_cardButton_9_clicked();
 
 signals:
 	void nextButtonEvent();
@@ -42,11 +43,16 @@ signals:
 private:
 	Ui::MTG_DraftClass ui;
 	vector<Card> cards;
+	vector<Card> activeCards;
 	vector<QLabel*> cardImages;
-	QMap<QLabel*, Card> cardMap;
 	Spike spike;
+	Player player;
 	void initializeCards();
 	void initializeCardImages();
 	void printCards();
+	void printCard(Card card);
 	void printPlayers();
+	void playerTakeCards(Card card, int takenIndex);
+	void removeActiveCard(Card card, int index);
+	void debugPrint(string s);
 };

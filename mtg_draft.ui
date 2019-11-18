@@ -187,8 +187,8 @@
    <widget class="QPushButton" name="cardButton_2">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>290</y>
+      <x>450</x>
+      <y>20</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -200,8 +200,8 @@
    <widget class="QPushButton" name="cardButton_3">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>560</y>
+      <x>680</x>
+      <y>20</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -213,8 +213,8 @@
    <widget class="QPushButton" name="cardButton_4">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>20</y>
+      <x>210</x>
+      <y>290</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -239,8 +239,8 @@
    <widget class="QPushButton" name="cardButton_6">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>560</y>
+      <x>680</x>
+      <y>290</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -252,8 +252,8 @@
    <widget class="QPushButton" name="cardButton_7">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>20</y>
+      <x>210</x>
+      <y>560</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -265,6 +265,19 @@
    <widget class="QPushButton" name="cardButton_8">
     <property name="geometry">
      <rect>
+      <x>450</x>
+      <y>560</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cardButton_9">
+    <property name="geometry">
+     <rect>
       <x>680</x>
       <y>560</y>
       <width>21</width>
@@ -273,19 +286,6 @@
     </property>
     <property name="text">
      <string>9</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cardButton_9">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>290</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>8</string>
     </property>
    </widget>
   </widget>

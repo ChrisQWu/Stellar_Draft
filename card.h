@@ -12,6 +12,8 @@ public:
 	std::string getCardName();
 	std::string getImgPath();
 	std::string toString();
+	friend bool operator==(const Card&, const Card&);
+
 private:
 	int cmc = 0;
 	std::string color = "";

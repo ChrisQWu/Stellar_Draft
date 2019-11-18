@@ -1,4 +1,4 @@
-﻿  uic mtg_draft.ui
+﻿  moc mtg_draft.h
   main.cpp
   mtg_draft.cpp
   moc_mtg_draft.cpp
