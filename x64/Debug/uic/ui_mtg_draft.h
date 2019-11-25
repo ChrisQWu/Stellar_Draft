@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mtg_draft.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.5
+** Created by: Qt User Interface Compiler version 5.12.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -62,7 +62,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         nextButton = new QPushButton(centralWidget);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
-        nextButton->setGeometry(QRect(694, 740, 71, 31));
+        nextButton->setGeometry(QRect(700, 90, 71, 31));
         cardImage = new QLabel(centralWidget);
         cardImage->setObjectName(QString::fromUtf8("cardImage"));
         cardImage->setGeometry(QRect(10, 0, 190, 265));
